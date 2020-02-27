@@ -21,8 +21,9 @@ PINBALL.game = function () {
     var _boundsX = -(org_width / 2);
     var _boundsY = -580;
 
-    var color_yellow = "#fed111";
-    var color_purple = "#8f2284";
+    // var color_yellow = "#fed111";
+    var color_yellow = "#c1c1c1";
+    var color_purple = "#000000";
     var color_black = "#000000";
 
     var flipperSpeed = 28;
@@ -161,6 +162,8 @@ PINBALL.game = function () {
             init();
         });
 
+      
+
         $('#end-slide').click(function (e) {
             $('#first-slide-container').hide();
 
@@ -177,6 +180,7 @@ PINBALL.game = function () {
 
             $('#nogame-slide-container').show();
         });
+        // $('#end-slide').click();
 
         $('.restart-game').click(function () {
             window.location.reload();
@@ -205,6 +209,10 @@ PINBALL.game = function () {
             }
 
         });
+
+
+        $('#first-slide-container').hide();
+        init();
 
     }
 
@@ -236,9 +244,9 @@ PINBALL.game = function () {
         function preload() {
 
             var url = ''
-            if (window.location.href.indexOf("pinball.test") < 0) {
-                url = '/pinball';
-            }
+            // if (window.location.href.indexOf("pinball.test") < 0) {
+            //     url = '/pinball';
+            // }
 
             game.load.image('pinball_background', url + '/assets/sprites/pinball_background.png');
 
