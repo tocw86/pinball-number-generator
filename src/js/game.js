@@ -131,31 +131,31 @@ PINBALL.game = function () {
      */
     function triggerEvents() {
 
-        if(typeof Cookies.get('pinball') != typeof undefined && Cookies.get('pinball') == 'saved'){
-            $('.sim-container').hide();
-            $('#rank-slide-container').show();
-            Cookies.remove('pinball')
-        }else{
-             $('#first-slide-container').show();
-        }
+        // if(typeof Cookies.get('pinball') != typeof undefined && Cookies.get('pinball') == 'saved'){
+        //     $('.sim-container').hide();
+        //     $('#rank-slide-container').show();
+        //     Cookies.remove('pinball')
+        // }else{
+        //      $('#first-slide-container').show();
+        // }
 
-        $('.btn-rank-slide').click(function (e) {
+        // $('.btn-rank-slide').click(function (e) {
             //ukrycie wszystkiego
-            $('.sim-container').hide();
-            $('#rank-slide-container').show();
-        });
+            // $('.sim-container').hide();
+            // $('#rank-slide-container').show();
+        // });
 
-        $("#il").slider({
-            value: 10,
-            min: 1,
-            step: 1,
-            animate: "fast",
-            max: 10,
-            slide: function (event, ui) {
-                il = ui.value;
-            }
-        });
-        il = 10;
+        // $("#il").slider({
+        //     value: 10,
+        //     min: 1,
+        //     step: 1,
+        //     animate: "fast",
+        //     max: 10,
+        //     slide: function (event, ui) {
+        //         il = ui.value;
+        //     }
+        // });
+        // il = 10;
 
         $('#game-start').click(function () {
             $('#first-slide-container').hide();
@@ -259,15 +259,15 @@ PINBALL.game = function () {
             game.load.image('bumper_left', url + '/assets/sprites/bumper_left.png');
             game.load.image('bumper_right', url + '/assets/sprites/bumper_right.png');
 
-            game.load.image('bumper_100', url + '/assets/sprites/bumper_100.png');
-            game.load.image('bumper_100_light', url + '/assets/sprites/bumper_100_light.png');
+            game.load.image('bumper_100', url + '/assets/sprites/bumper.png');
+            game.load.image('bumper_100_light', url + '/assets/sprites/bumper_light.png');
 
 
-            game.load.image('bumper_50', url + '/assets/sprites/bumper_50.png');
-            game.load.image('bumper_50_light', url + '/assets/sprites/bumper_50_light.png');
+            game.load.image('bumper_50', url + '/assets/sprites/bumper.png');
+            game.load.image('bumper_50_light', url + '/assets/sprites/bumper_light.png');
 
-            game.load.image('bumper_25', url + '/assets/sprites/bumper_25.png');
-            game.load.image('bumper_25_light', url + '/assets/sprites/bumper_25_light.png');
+            game.load.image('bumper_25', url + '/assets/sprites/bumper.png');
+            game.load.image('bumper_25_light', url + '/assets/sprites/bumper_light.png');
 
             game.load.image('logo_dark', url + '/assets/sprites/logo_dark.png');
             game.load.image('logo_light', url + '/assets/sprites/logo_light.png');
@@ -416,23 +416,23 @@ PINBALL.game = function () {
                 0, motorSpeed, motorTorque, true, -30, 30, true);
 
             //Labels
-            var caption = game.add.text(10, 10, 'Wynik:', {
+            var caption = game.add.text(10, 10, 'Score:', {
                 fill: color_purple,
                 font: '15pt daxpro-extraboldregular'
             });
             caption.fixedToCamera = true;
 
-            var caption = game.add.text(10, 37, 'Szanse:', {
+            var caption = game.add.text(10, 37, 'Lives:', {
                 fill: color_purple,
                 font: '13pt daxpro-extraboldregular'
             });
             caption.fixedToCamera = true;
 
-            yourNumbersLabel = game.add.text(10, 61, 'Twoje Liczby:', {
-                fill: color_purple,
-                font: '11pt daxpro-extraboldregular'
-            });
-            yourNumbersLabel.fixedToCamera = true;
+            // yourNumbersLabel = game.add.text(10, 61, 'Twoje Liczby:', {
+            //     fill: color_purple,
+            //     font: '11pt daxpro-extraboldregular'
+            // });
+            // yourNumbersLabel.fixedToCamera = true;
 
             gameScoreCaption = game.add.text(80, 10, gameScore.toString(), {
                 fill: color_black,
@@ -446,22 +446,22 @@ PINBALL.game = function () {
             });
             userLivesCaption.fixedToCamera = true;
 
-            endGameCaption = game.add.text(285, 10, 'Pomiń grę', {
-                fill: color_purple,
-                font: '13pt daxpro-extraboldregular'
-            });
-            endGameCaption.fixedToCamera = true;
-            endGameCaption.inputEnabled = true;
-            endGameCaption.input.enableDrag();
-            endGameCaption.input.useHandCursor = true;
-            endGameCaption.events.onInputDown.add(function (item) {
+            // endGameCaption = game.add.text(285, 10, 'Pomiń grę', {
+            //     fill: color_purple,
+            //     font: '13pt daxpro-extraboldregular'
+            // });
+            // endGameCaption.fixedToCamera = true;
+            // endGameCaption.inputEnabled = true;
+            // endGameCaption.input.enableDrag();
+            // endGameCaption.input.useHandCursor = true;
+            // endGameCaption.events.onInputDown.add(function (item) {
 
-                game.gamePaused();
-                $('canvas').hide();
-                $('.end-ball-result').hide();
-                $('#end-slide').click();
+            //     game.gamePaused();
+            //     $('canvas').hide();
+            //     $('.end-ball-result').hide();
+            //     $('#end-slide').click();
 
-            }, this);
+            // }, this);
 
 
             //Mobile
@@ -749,7 +749,7 @@ PINBALL.game = function () {
                 case "bumper_25":
                     $bumper.sprite.loadTexture("bumper_25_light");
                     setTimeout(function () {
-                        generateResultBall(bumpersPositions.b25);
+                        // generateResultBall(bumpersPositions.b25);
                         // var pos = calculateAbsolutePosition($bumper);
                         $bumper.sprite.loadTexture("bumper_25");
                     }, 500);
@@ -759,7 +759,7 @@ PINBALL.game = function () {
                 case "bumper_50":
                     $bumper.sprite.loadTexture("bumper_50_light");
                     setTimeout(function () {
-                        generateResultBall(bumpersPositions.b50);
+                        // generateResultBall(bumpersPositions.b50);
                         $bumper.sprite.loadTexture("bumper_50");
                     }, 500);
                     updateGameScore(50);
@@ -767,7 +767,7 @@ PINBALL.game = function () {
                 case "bumper_100":
                     $bumper.sprite.loadTexture("bumper_100_light");
                     setTimeout(function () {
-                        generateResultBall(bumpersPositions.b100);
+                        // generateResultBall(bumpersPositions.b100);
                         $bumper.sprite.loadTexture("bumper_100");
                     }, 500);
 
@@ -920,11 +920,11 @@ PINBALL.game = function () {
         userLives = 3;
         flipperHit = false;
 
-        $('.end-ball-result').hide();
-        $('canvas').hide();
+        // $('.end-ball-result').hide();
+        // $('canvas').hide();
 
-        $('#end-slide-container').show();
-        $('#user-result').text(gameScore);
+        // $('#end-slide-container').show();
+        // $('#user-result').text(gameScore);
 
     }
 
